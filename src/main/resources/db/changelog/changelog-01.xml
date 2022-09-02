@@ -1,0 +1,18 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+    <changeSet id="01.1" author="ssaburov">
+        <createTable tableName="messages">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="session_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mc1_timestamp" type="DATETIME(6)"/>
+            <column name="mc2_timestamp" type="DATETIME(6)"/>
+            <column name="mc3_timestamp" type="DATETIME(6)"/>
+            <column name="end_timestamp" type="DATETIME(6)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
