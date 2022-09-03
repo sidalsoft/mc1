@@ -10,7 +10,7 @@ public record SessionInfo( long interactionTime, long totalMessages )
     public String toString()
     {
         return String.format(
-                "Время взаимодействия: %s секунд.\nКоличество сообщений, сгенерированных во время взаимодействия: %s\n",
+                "\nВремя взаимодействия: %s секунд.\nКоличество сообщений, сгенерированных во время взаимодействия: %s\n",
                 interactionTime,
                 totalMessages );
     }

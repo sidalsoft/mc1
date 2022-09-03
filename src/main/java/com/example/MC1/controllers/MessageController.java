@@ -2,6 +2,8 @@ package com.example.MC1.controllers;
 
 import com.example.MC1.services.MessageService;
 import com.example.MC1.services.dto.MessageDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,7 @@ import java.util.Date;
 @RestController
 public class MessageController implements MessagePort
 {
+    Logger logger = LoggerFactory.getLogger( MessageController.class);
 
     @Value("${my.interaction-interval}")
     int interactionInterval;
@@ -91,7 +94,7 @@ public class MessageController implements MessagePort
 
     private void printLogAndReset()
     {
-        System.out.println( messageService.generateSessionInfo( spentTimeMillis / 1000, latsSessionId ).toString() );
+        logger.info( messageService.generateSessionInfo( spentTimeMillis / 1000, latsSessionId ).toString() );
         latsSessionId = 0;
         processIsStopped = true;
         spentTimeMillis = 0;
